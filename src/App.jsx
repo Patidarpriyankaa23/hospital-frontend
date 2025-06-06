@@ -11,7 +11,7 @@ import DoctorSignUp from './Doctor/DoctorSignUp';
 import DrSendEmail from './Doctor/DrSendEmail';
 import GetAllDr from './Doctor/GetAllDr';
 import Footer from './Component/Footer';
- import DrLogin from './Doctor/DrLogin';
+import DrLogin from './Doctor/DrLogin';
 import Addappointment from './Appointment/Addappointment';
 import UpdateAppointment from './Appointment/UpdateAppointment';
 import DeleteAppointment from './Appointment/DeleteAppointment';
