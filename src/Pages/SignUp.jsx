@@ -1,7 +1,7 @@
 import React, {user, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import api from '../axiosInstance';
-import useAuth from '../Context/authContext';
+import { useAuth }from '../Context/authContext';
 import { toast } from 'react-toastify';
 
 function SignUp() {

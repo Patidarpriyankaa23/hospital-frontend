@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
-import useAuth from '../Context/authContext';
+import { useAuth } from '../Context/authContext';
 import api from '../axiosInstance';
 
 function GetUser() {
