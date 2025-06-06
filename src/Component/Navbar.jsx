@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import useAuth from '../Context/authContext';
+import {useAuth} from '../Context/authContext';
 import useDoctorAuth from '../Context/DrContext';
 import { toast } from 'react-toastify';
 
