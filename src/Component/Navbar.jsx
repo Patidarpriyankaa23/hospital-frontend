@@ -69,7 +69,7 @@
 
 // export default Navbar;
 
-      import React from 'react';
+import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../Context/authContext';
 import { useDoctorAuth } from '../Context/DrContext';
@@ -93,20 +93,20 @@ function Navbar() {
   };
 
   return (
-    <nav className="bg-pink-900 text-white shadow-md w-full">
-      <div className="flex flex-col md:flex-row md:justify-between md:items-center p-4 container mx-auto space-y-4 md:space-y-0">
-        {/* Logo and Title */}
+    <nav className="bg-pink-900 text-white w-full">
+      <div className="container mx-auto px-4 py-3 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+        {/* Logo & Title */}
         <div className="flex items-center space-x-3">
           <img
             src="https://www.shutterstock.com/image-vector/beautiful-get-well-soon-card-260nw-185897024.jpg"
-            alt="Hospital Logo"
+            alt="Logo"
             className="w-12 h-12 object-cover rounded"
           />
           <span className="text-2xl font-bold">Get-Well Hospital</span>
         </div>
 
-        {/* Full Menu - visible on all devices */}
-        <div className="flex flex-wrap gap-4 items-center justify-center text-center">
+        {/* Full Navigation Menu (always visible) */}
+        <div className="flex flex-wrap gap-4 items-center">
           <Link to="/" className="hover:text-blue-300">Home</Link>
           <Link to="/get-all" className="hover:text-blue-300">Get All Doctors</Link>
           <Link to="/all-appointments" className="hover:text-blue-300">Show Appointment</Link>
