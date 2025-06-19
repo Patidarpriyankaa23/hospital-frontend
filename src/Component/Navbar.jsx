@@ -76,8 +76,8 @@ import { useDoctorAuth } from '../Context/DrContext';
 import { toast } from 'react-toastify';
 
 function Navbar() {
-  const { isLoggedIn: isUserLoggedIn, user, logout } = useAuth();
-  const { isDoctorLoggedIn, doctor, drLogout } = useDoctorAuth();
+  const { isLoggedIn: isUserLoggedIn, user, logout, loading: userLoading } = useAuth();
+  const { isDoctorLoggedIn, doctor, drLogout, loading: doctorLoading } = useDoctorAuth();
   const navigate = useNavigate();
 
   const handleLogout = () => {
@@ -95,38 +95,43 @@ function Navbar() {
   return (
     <nav className="bg-pink-900 text-white w-full">
       <div className="flex flex-col sm:flex-col md:flex-row justify-between items-start md:items-center gap-4 p-4 flex-wrap">
-        {/* Left: Logo + Title */}
-        <div className="flex items-center gap-3">
+        {/* Logo and Title */}
+        <div className="flex items-center space-x-3">
           <img
             src="https://www.shutterstock.com/image-vector/beautiful-get-well-soon-card-260nw-185897024.jpg"
             alt="Hospital Logo"
             className="w-12 h-12 object-cover rounded"
           />
-          <h1 className="text-xl md:text-2xl font-bold">Get-Well Hospital</h1>
+          <span className="text-2xl font-bold">Get-Well Hospital</span>
         </div>
 
-        {/* Right: All Menu Items Always Visible */}
+        {/* Navigation Links - always visible and responsive */}
         <div className="flex flex-wrap gap-4 items-center text-center">
           <Link to="/" className="hover:text-blue-300">Home</Link>
           <Link to="/get-all" className="hover:text-blue-300">Get All Doctors</Link>
           <Link to="/all-appointments" className="hover:text-blue-300">Show Appointment</Link>
 
-          {isUserLoggedIn ? (
+          {/* Display based on login state */}
+          {!userLoading && !doctorLoading && (
             <>
-              <span className="font-semibold">Welcome, {user?.firstName || 'User'}!</span>
-              <Link to="/add" className="hover:text-blue-300">Add Appointment</Link>
-              <button onClick={handleLogout} className="hover:text-blue-300">Logout</button>
-            </>
-          ) : isDoctorLoggedIn ? (
-            <>
-              <span className="font-semibold">Welcome, Dr.{doctor?.doctorName || 'Doctor'}!</span>
-              <Link to="/add" className="hover:text-blue-300">Add Appointment</Link>
-              <button onClick={handleLogout} className="hover:text-blue-300">Logout</button>
-            </>
-          ) : (
-            <>
-              <Link to="/login" className="hover:text-blue-300">Login</Link>
-              <Link to="/drlogin" className="hover:text-blue-300">Doctor Login</Link>
+              {isUserLoggedIn ? (
+                <>
+                  <span className="font-semibold">Welcome, {user?.firstName || "User"}!</span>
+                  <Link to="/add" className="hover:text-blue-300">Add Appointment</Link>
+                  <button onClick={handleLogout} className="hover:text-blue-300">Logout</button>
+                </>
+              ) : isDoctorLoggedIn ? (
+                <>
+                  <span className="font-semibold">Welcome, Dr.{doctor?.doctorName || "Doctor"}!</span>
+                  <Link to="/add" className="hover:text-blue-300">Add Appointment</Link>
+                  <button onClick={handleLogout} className="hover:text-blue-300">Logout</button>
+                </>
+              ) : (
+                <>
+                  <Link to="/login" className="hover:text-blue-300">Login</Link>
+                  <Link to="/drlogin" className="hover:text-blue-300">Doctor Login</Link>
+                </>
+              )}
             </>
           )}
         </div>
