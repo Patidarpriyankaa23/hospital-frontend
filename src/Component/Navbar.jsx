@@ -94,24 +94,24 @@ function Navbar() {
 
   return (
     <nav className="bg-pink-900 text-white w-full">
-      <div className="flex flex-col sm:flex-col md:flex-row justify-between items-start md:items-center gap-4 p-4 flex-wrap">
+      <div className="w-full px-4 py-3 flex flex-col md:flex-row md:justify-between md:items-center gap-4 flex-wrap">
+        
         {/* Logo and Title */}
-        <div className="flex items-center space-x-3">
+        <div className="flex items-center gap-3">
           <img
             src="https://www.shutterstock.com/image-vector/beautiful-get-well-soon-card-260nw-185897024.jpg"
             alt="Hospital Logo"
             className="w-12 h-12 object-cover rounded"
           />
-          <span className="text-2xl font-bold">Get-Well Hospital</span>
+          <h1 className="text-xl md:text-2xl font-bold">Get-Well Hospital</h1>
         </div>
 
-        {/* Navigation Links - always visible and responsive */}
-        <div className="flex flex-wrap gap-4 items-center text-center">
+        {/* Menu Items - visible on all devices */}
+        <div className="flex flex-wrap gap-4 items-center text-sm md:text-base">
           <Link to="/" className="hover:text-blue-300">Home</Link>
           <Link to="/get-all" className="hover:text-blue-300">Get All Doctors</Link>
           <Link to="/all-appointments" className="hover:text-blue-300">Show Appointment</Link>
 
-          {/* Display based on login state */}
           {!userLoading && !doctorLoading && (
             <>
               {isUserLoggedIn ? (
