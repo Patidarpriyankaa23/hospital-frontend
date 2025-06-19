@@ -83,30 +83,30 @@ function Navbar() {
   const handleLogout = () => {
     if (isUserLoggedIn) {
       logout();
-      toast.success('Logged out successfully');
-      navigate('/login');
+      toast.success("Logged out successfully");
+      navigate("/login");
     } else if (isDoctorLoggedIn) {
       drLogout();
-      toast.success('Doctor logged out successfully');
-      navigate('/drlogin');
+      toast.success("Doctor logged out successfully");
+      navigate("/drlogin");
     }
   };
 
   return (
     <nav className="bg-pink-900 text-white w-full">
-      <div className="container mx-auto px-4 py-3 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
-        {/* Logo & Title */}
-        <div className="flex items-center space-x-3">
+      <div className="flex flex-col sm:flex-col md:flex-row justify-between items-start md:items-center gap-4 p-4 flex-wrap">
+        {/* Left: Logo + Title */}
+        <div className="flex items-center gap-3">
           <img
             src="https://www.shutterstock.com/image-vector/beautiful-get-well-soon-card-260nw-185897024.jpg"
-            alt="Logo"
+            alt="Hospital Logo"
             className="w-12 h-12 object-cover rounded"
           />
-          <span className="text-2xl font-bold">Get-Well Hospital</span>
+          <h1 className="text-xl md:text-2xl font-bold">Get-Well Hospital</h1>
         </div>
 
-        {/* Full Navigation Menu (always visible) */}
-        <div className="flex flex-wrap gap-4 items-center">
+        {/* Right: All Menu Items Always Visible */}
+        <div className="flex flex-wrap gap-4 items-center text-center">
           <Link to="/" className="hover:text-blue-300">Home</Link>
           <Link to="/get-all" className="hover:text-blue-300">Get All Doctors</Link>
           <Link to="/all-appointments" className="hover:text-blue-300">Show Appointment</Link>
